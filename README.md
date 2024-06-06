@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 스타일린트 데모
 
-## Getting Started
+## 1. 설치하기
 
-First, run the development server:
+인기있는 스타일링 선택지를 대부분 지원하지만 설정이 다소 복잡해지는 경우도 있다.
+
+1.1 기본 설정으로 설치하기
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm init stylelint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1.2 scss 설정으로 설치하기
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install --save-dev stylelint stylelint-config-standard-scss
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1.3 postcss(css-in-js) 설정으로 설치하기
 
-## Learn More
+```bash
+npm install --save-dev stylelint stylelint-config postcss-styled-syntax
+```
 
-To learn more about Next.js, take a look at the following resources:
+데모는 일반 css 설정으로 진행한다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 2. 검사하기
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+프로젝트 내 css 파일을 검사하기
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+npx stylelint "**/*.css"
+```
