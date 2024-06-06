@@ -31,3 +31,50 @@ npm install --save-dev stylelint stylelint-config postcss-styled-syntax
 ```bash
 npx stylelint "**/*.css"
 ```
+
+## 3. stylelint-order 플러그인 설치하기
+
+> 플러그인은 특정 용도로 사용하는 커스텀 규칙의 집합
+> https://stylelint.io/user-guide/configure#plugins
+
+3.1 플러그인 설치하기
+
+```bash
+npm install --save-dev stylelint-order
+```
+
+3.2 설정 파일 수정하기(.stylelintrc.json)
+
+```json
+{
+  "plugins": ["stylelint-order"],
+  "rules": {}
+}
+```
+
+3.3 순서 규칙 커스텀하기
+
+~~세가지~~ 두가지 옵션을 제공한다.
+
+- ~~properties-alphabetical-order: 속성을 알파벳 순서로 정렬~~ (알파벳 순서는 해로운 정렬 방식으로 간주)
+- [order: 스타일 블록 안의 구성 요소에 순서를 부여](https://github.com/hudochenkov/stylelint-order/blob/master/rules/order/README.md)
+- [properties-order: 스타일 블록 안의 속성을 정의한 순서대로 정렬](https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-order/README.md)
+
+### 우리는 우리가 정한 기준으로 속성을 모아서 보고 싶다
+
+```json
+{
+  "order/properties-order": [
+    {
+      "groupName": "dimensions",
+      "emptyLineBefore": "always",
+      "properties": ["height", "width"]
+    },
+    {
+      "groupName": "font",
+      "emptyLineBefore": "always",
+      "properties": ["font-size", "font-weight"]
+    }
+  ]
+}
+```
